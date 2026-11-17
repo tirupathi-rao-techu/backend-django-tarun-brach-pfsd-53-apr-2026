@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>This si the registration form</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Name</label><br>
+            {{ form.name }}
+            <br>
+            <span style="color:red">
+                {{ form.name.errors }}
+            </span>
+        </p>
+        <p>
+            <label>Email</label><br>
+            {{ form.email }}
+            <br>
+            <span style="color:red">
+                {{ form.email.errors }}
+            </span>
+        </p>
+        <p>
+            <label>Mobile</label><br>
+            {{ form.mobile_number }}
+            <br>
+            <span style="color:red">
+                {{ form.mobile.errors }}
+            </span>
+        </p>
+        <p>
+            <label>Department</label><br>
+            {{ form.department }}
+            <br>
+            <span style="color:red">
+                {{ form.department.errors }}
+            </span>
+        </p>
+        <p>
+            <label>Salary</label><br>
+            {{ form.salary }}
+            <br>
+            <span style="color:red">
+                {{ form.salary.errors }}
+            </span>
+        </p>
+        <p>
+            <label>City</label><br>
+            {{ form.city }}
+            <br>
+            <span style="color:red">
+                {{ form.city.errors }}
+            </span>
+        </p>
+        {% if form.non_field_errors %}
+        <div style="color:red">
+            {{ form.non_field_errors }}
+        </div>
+        {% endif %}
+        <button type="submit">
+            Register Employee
+        </button>
+    </form>
+    {% if success %}
+    <p style="color:green">
+        {{ success }}
+    </p>
+    {% endif %}
+    {% if db_error %}
+    <p style="color:red">
+        {{ db_error }}
+    </p>
+    {% endif %}
+
+</body>
+
+</html>

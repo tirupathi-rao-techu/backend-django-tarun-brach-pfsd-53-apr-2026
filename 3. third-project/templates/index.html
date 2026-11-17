@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block rehman %}Home page{% endblock %}
+
+{% block tarun %}
+<h1>This si the first HTML Page</h1>
+<h2>Django Templates</h2>
+<p>Student Name : Tarun Kumar</p>
+<p>Student Name : {{ name | title }}</p>
+<p>Age : 25</p>
+<p>Age : {{ age }}</p>
+<p>Qualification : B.Tech</p>
+<p>Qualification : {{ qualification | default:"Intermediate" }}</p>
+
+{% if is_active %}
+<p>Courses : {{ courses | length }}</p>
+<ul>
+    {% for course in courses %}
+    <li>{{ course }}</li>
+    {% endfor%}
+</ul>
+{% endif %}
+
+{%comment%}
+Future salary section
+{%endcomment%}
+
+<p>Employee Status :
+    {% if salary > 50000 %}
+    <span>Senior Employee</span>
+    <span>{{ salary }}</span>
+
+    {% else %}
+    <span>Junior Employee</span>
+    <span>{{ salary }}</span>
+    {% endif %}
+</p>
+
+
+
+
+
+
+{% endblock %}
+
+{% block page %} Home {% endblock %}
